@@ -10,11 +10,11 @@ const {
 
 const router = express.Router();
 
-router.get('/', getReservaciones); 
+router.get('/', getReservaciones);
 router.post('/', crearReservacion);
 router.put('/:id', actualizarEstadoReservacion);
-router.get('/aceptadas/nombre/:nombreDepartamento', getFechasOcupadasPorDepartamento);
 router.get('/pendientes', getReservacionesPendientes);
+router.get('/aceptadas/:departamentoId', getFechasOcupadasPorDepartamento);
 router.delete('/:id', deleteReservacion);
 
 module.exports = router;

@@ -1,4 +1,3 @@
-// models/reservacionesModel.js
 const mongoose = require('mongoose');
 
 const reservacionSchema = new mongoose.Schema({
@@ -6,10 +5,10 @@ const reservacionSchema = new mongoose.Schema({
   fechaInicio:  { type: Date, required: true },
   fechaFin:     { type: Date, required: true },
   estado:       { type: String, enum: ['pendiente', 'aceptada', 'rechazada'], default: 'pendiente' },
-  nombre:       { type: String },
-  contacto:     { type: String },
+  nombre:       { type: String, required: true },
+  contacto:     { type: String, required: true },
 }, {
   timestamps: true,
 });
 
-module.exports = mongoose.model('Reservacion', reservacionSchema, "Reservaciones");
+module.exports = mongoose.model('Reservacion', reservacionSchema);
