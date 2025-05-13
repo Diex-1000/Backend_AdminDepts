@@ -1,14 +1,20 @@
 const express = require('express');
 const {
+  getReservaciones,
   crearReservacion,
-  verificarDisponibilidad,
-  actualizarEstadoReservacion
-} = require('../controllers/reservacionesController');
+  actualizarEstadoReservacion,
+  getReservacionesPendientes,
+  getFechasOcupadasPorDepartamento,
+  deleteReservacion
+} = require('../controllers/reservacionesControllers');
 
 const router = express.Router();
 
+router.get('/', getReservaciones); 
 router.post('/', crearReservacion);
-router.get('/disponibilidad', verificarDisponibilidad);
-router.put('/:id/estado', actualizarEstadoReservacion);
+router.put('/:id', actualizarEstadoReservacion);
+router.get('/aceptadas/nombre/:nombreDepartamento', getFechasOcupadasPorDepartamento);
+router.get('/pendientes', getReservacionesPendientes);
+router.delete('/:id', deleteReservacion);
 
 module.exports = router;

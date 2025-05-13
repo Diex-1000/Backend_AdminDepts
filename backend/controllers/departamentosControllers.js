@@ -7,12 +7,12 @@ const getDepartamentos = asyncHandler(async (req, res) => {
 });
 
 const createDepartamento = asyncHandler(async (req, res) => {
-  const { nombre, descripcion = '', disponible = true } = req.body;
+  const { nombre, descripcion = ''} = req.body;
   if (!nombre) {
     res.status(400);
     throw new Error('El campo "nombre" es obligatorio');
   }
-  const newDepartamento = await Departamento.create({ nombre, descripcion, disponible });
+  const newDepartamento = await Departamento.create({ nombre, descripcion});
   res.status(201).json(newDepartamento);
 });
 
