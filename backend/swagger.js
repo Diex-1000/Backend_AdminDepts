@@ -15,7 +15,7 @@ const options = {
     },
     servers: [
       {
-        url: 'http://localhost:8000',
+        url: 'https://backend-admindepts.onrender.com',
         description: 'Servidor local',
       },
     ],
