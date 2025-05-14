@@ -79,6 +79,7 @@ router.post('/', crearReservacion);
  *         application/json:
  *           schema:
  *             type: object
+ *             required: [estado]
  *             properties:
  *               estado:
  *                 type: string
@@ -113,9 +114,23 @@ router.get('/pendientes', getReservacionesPendientes);
  *         required: true
  *         schema:
  *           type: string
+ *         description: ID del departamento
  *     responses:
  *       200:
  *         description: Lista de fechas ocupadas
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   inicio:
+ *                     type: string
+ *                     format: date
+ *                   fin:
+ *                     type: string
+ *                     format: date
  */
 router.get('/aceptadas/:departamentoId', getFechasOcupadasPorDepartamento);
 
