@@ -63,6 +63,17 @@ router.post('/', createDepartamento);
  *         required: true
  *         schema:
  *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               nombre:
+ *                 type: string
+ *               descripcion:
+ *                 type: string
  *     responses:
  *       200:
  *         description: Departamento actualizado
