@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler');
-const Usuario = require('../models/usuariosModel'); // Asegúrate del nombre correcto del archivo
+const Usuario = require('../models/usuariosModel'); 
 
 // GET: Obtener todos los usuarios
 const getUsuarios = asyncHandler(async (req, res) => {
@@ -24,7 +24,7 @@ const createUsuario = asyncHandler(async (req, res) => {
     throw new Error('El usuario ya existe');
   }
 
-  // Hashear la contraseña
+
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);
 
